@@ -1,0 +1,11 @@
+services:
+  - type: web
+    name: heal-loudly-movement
+    runtime: python
+    plan: free
+    buildCommand: ""
+    startCommand: python server.py
+    disk:
+      name: heal-loudly-data
+      mountPath: /opt/render/project/src/data
+      sizeGB: 1
