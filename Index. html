@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Heal Loudly</title>
+  <!-- Puter JS SDK -->
+  <script src="https://js.puter.com/v2/"></script>
+  <style>
+    body { font-family: sans-serif; max-width: 600px; margin: 40px auto; padding: 20px; }
+    button { padding: 10px 18px; font-size: 16px; cursor: pointer; }
+    #output { margin-top: 20px; white-space: pre-wrap; background: #f4f4f4; padding: 15px; border-radius: 8px; }
+  </style>
+</head>
+<body>
+  <h1>Heal Loudly</h1>
+  <p>Welcome to the Heal Loudly movement.</p>
+
+  <button onclick="askAI()">Connect / Talk to AI</button>
+  <div id="output">Click the button above to start...</div>
+
+  <script>
+    async function askAI() {
+      const output = document.getElementById('output');
+      output.innerText = "Thinking...";
+      try {
+        // Uses Puter's free AI integration directly from browser
+        const response = await puter.ai.chat("Give an empowering 2-sentence affirmation for healing.");
+        output.innerText = response;
+      } catch (err) {
+        output.innerText = "Error: " + err.message;
+      }
+    }
+  </script>
+</body>
+</html>
